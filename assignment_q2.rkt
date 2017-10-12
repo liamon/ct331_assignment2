@@ -19,4 +19,4 @@
 (define (count_top_level lst)
   (if (null? lst)
       0
-      (+ 1 ( count_top_level (cdr lst)))))
+      (+ 1 (count_top_level (cdr lst)))))
