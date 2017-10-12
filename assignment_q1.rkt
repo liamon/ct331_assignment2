@@ -12,12 +12,17 @@
 (define (list_with_list str num nested_list)
   (list str num nested_list))
 
+; Note that even though nested_list is already a list, I still have to
+; pass it to the list function so that it is treated as a single element
+; of the list, rather than its subelements being appended to the end of
+; the list as separate elements.
 (define (list_with_append str num nested_list)
   (append (list str) (list num) (list nested_list)))
 
 (pair_numbers 2 3)
 (three_list 7 6 8)
 
+; I initially forgot to include the ' before the nested lists here.
 (list_with_cons "Hello!" 8 '(2 4 5))
 (list_with_list "a string" 9 '(21 3 5))
 (list_with_append "Racket" 22 '(8 7 88))
