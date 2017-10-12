@@ -8,7 +8,7 @@
 ;calling each function separately. 
 (define (runTests)
   (begin
-    (display "Running tests...\n")
+    (display "Running tests...\n\n")
     ;begin calling test functions
     (display (test_result_message test_ins_beg_atom "Inserting an atom at the start of a list"))
     (display (test_result_message test_ins_beg_list "Inserting a list at the start of a list"))
