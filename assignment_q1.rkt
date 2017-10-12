@@ -13,4 +13,11 @@
   (list str num nested_list))
 
 (define (list_with_append str num nested_list)
-  (append (str) (num) (nested_list)))
+  (append (list str) (list num) (list nested_list)))
+
+(pair_numbers 2 3)
+(three_list 7 6 8)
+
+(list_with_cons "Hello!" 8 '(2 4 5))
+(list_with_list "a string" 9 '(21 3 5))
+(list_with_append "Racket" 22 '(8 7 88))
