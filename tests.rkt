@@ -15,11 +15,11 @@
     (display "\nTests complete!\n")))
 
 ;Begin test functions
-(define (test_ins_beg_atom)
-  (eq? (ins_beg 1 '(2 3 4)) '(1 2 3 4)))
+(define (test_ins_beg_atom) ; eq? checks if they refer to the same object
+  (equal? '(1 2 3 4) (ins_beg 1 '(2 3 4)))) ; so I need to use equal?
 
 (define (test_ins_beg_list)
-  (eq? (ins_beg '(1 6) '(2 3 4)) '((1 6) 2 3 4)))
+  (equal? '((1 6) 2 3 4) (ins_beg '(1 6) '(2 3 4))))
 
 ;End test functions
 
