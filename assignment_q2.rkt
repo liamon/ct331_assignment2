@@ -20,3 +20,13 @@
   (if (null? lst)
       0
       (+ 1 (count_top_level (cdr lst)))))
+
+(provide count_instances)
+; This is a recursive function. The base case is an empty list, which
+; returns zero. For all other lists, if the first element of the list is
+; the item I am looking for, then I return one plus count_instances called
+; on the rest of the list. Otherwise, I return zero plus that value.
+(define (count_instances item lst)
+  (cond [(null? lst) 0]
+        [(equal? item (car lst)) (+ 1 (count_instances item (cdr lst)))]
+        [else (+ 0 (count_instances item (cdr lst)))]))
