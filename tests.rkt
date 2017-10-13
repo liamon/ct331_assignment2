@@ -15,6 +15,10 @@
     (display (test_result_message test_ins_beg_list "Inserting a list at the start of a list"))
     (display (test_result_message test_ins_end_atom "Inserting an atom at the end of a list"))
     (display (test_result_message test_ins_end_list "Inserting a list at the end of a list"))
+
+    (display (test_result_message test_count_top_level_empty "Counting the top-level elements in an empty list"))
+    (display (test_result_message test_count_top_level_atoms "Counting the top-level elements in a list of atoms"))
+    (display (test_result_message test_count_top_level_lists "Counting the top-level elements in a list of lists"))
     ;end calling test functions
     
     (display "\nTests complete!\n")))
@@ -36,6 +40,15 @@
 
 (define (test_ins_end_list)
   (equal? '(4 5 6 (1 2)) (ins_end '(1 2) '(4 5 6))))
+
+(define (test_count_top_level_empty)
+  (= 0 (count_top_level '())))
+
+(define (test_count_top_level_atoms)
+  (= 4 (count_top_level '(9 8 76 2))))
+
+(define (test_count_top_level_lists)
+  (= 3 (count_top_level '((8 2) (8 7 6) (2)))))
 
 ;End test functions
 
