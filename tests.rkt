@@ -9,10 +9,14 @@
 (define (runTests)
   (begin
     (display "Running tests...\n\n")
+    
     ;begin calling test functions
     (display (test_result_message test_ins_beg_atom "Inserting an atom at the start of a list"))
     (display (test_result_message test_ins_beg_list "Inserting a list at the start of a list"))
+    (display (test_result_message test_ins_end_atom "Inserting an atom at the end of a list"))
+    (display (test_result_message test_ins_end_list "Inserting a list at the end of a list"))
     ;end calling test functions
+    
     (display "\nTests complete!\n")))
 
 ;Begin test functions
@@ -26,6 +30,12 @@
 
 (define (test_ins_beg_list)
   (equal? '((1 6) 2 3 4) (ins_beg '(1 6) '(2 3 4))))
+
+(define (test_ins_end_atom)
+  (equal? '(2 3 4 5) (ins_end 5 '(2 3 4))))
+
+(define (test_ins_end_list)
+  (equal? '(4 5 6 (1 2)) (ins_end '(1 2) '(4 5 6))))
 
 ;End test functions
 
