@@ -21,6 +21,8 @@
 
     (display (test_result_message test_count_instances_absent "Counting instances of an item absent from a list"))
     (display (test_result_message test_count_instances_present "Counting instances of an item present in a list"))
+    (display (test_result_message test_count_instances_tr_absent "Counting instances of an item absent from a list with tail-recursion"))
+    (display (test_result_message test_count_instances_tr_present "Counting instances of an item present in a list with tail-recursion"))
     ;end calling test functions
     
     (display "\nTests complete!\n")))
@@ -57,6 +59,12 @@
 
 (define (test_count_instances_present)
   (= 2 (count_instances 1 '(0 2 1 9 1))))
+
+(define (test_count_instances_tr_absent)
+  (= 0 (count_instances_tr 3 '(0 1 55))))
+
+(define (test_count_instances_tr_present)
+  (= 2 (count_instances_tr 1 '(0 2 1 9 1))))
 
 ;End test functions
 
