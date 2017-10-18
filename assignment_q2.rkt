@@ -38,5 +38,7 @@
 ; I am deliberately not including a (provide count_instances_tr_helper)
 ; statement. This is because this is a helper function for the tail-recursive
 ; count_instances_tr. This is similar to a private method in object-oriented programming.
-(define (count_instances_tr_helper item lst item_count)
-  item_count) ; TODO
+(define (count_instances_tr_helper item lst count)
+  (cond [(empty? lst) count]
+        [(equal? item (car lst)) (count_instances_tr_helper item (cdr lst) (+ 1 count))]
+        [else (count_instances_tr_helper item (cdr lst) count)]))
