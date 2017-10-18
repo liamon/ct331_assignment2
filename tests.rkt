@@ -18,6 +18,9 @@
     (display (test_result_message test_count_top_level_empty "Counting the top-level elements in an empty list"))
     (display (test_result_message test_count_top_level_atoms "Counting the top-level elements in a list of atoms"))
     (display (test_result_message test_count_top_level_lists "Counting the top-level elements in a list of lists"))
+
+    (display (test_result_message test_count_instances_absent "Counting instances of an item absent from a list"))
+    (display (test_result_message test_count_instances_present "Counting instances of an item present in a list"))
     ;end calling test functions
     
     (display "\nTests complete!\n")))
@@ -48,6 +51,12 @@
 
 (define (test_count_top_level_lists)
   (= 3 (count_top_level '((8 2) (8 7 6) (2)))))
+
+(define (test_count_instances_absent)
+  (= 0 (count_instances 3 '(0 1 55))))
+
+(define (test_count_instances_present)
+  (= 2 (count_instances 1 '(0 2 1 9 1))))
 
 ;End test functions
 
