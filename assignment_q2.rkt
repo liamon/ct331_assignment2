@@ -30,3 +30,13 @@
   (cond [(null? lst) 0]
         [(equal? item (car lst)) (+ 1 (count_instances item (cdr lst)))]
         [else (+ 0 (count_instances item (cdr lst)))]))
+
+(provide count_instances_tr)
+(define (count_instances_tr item lst)
+  (count_instances_tr_helper item lst 0))
+ 
+; I am deliberately not including a (provide count_instances_tr_helper)
+; statement. This is because this is a helper function for the tail-recursive
+; count_instances_tr. This is similar to a private method in object-oriented programming.
+(define (count_instances_tr_helper item lst item_count)
+  item_count) ; TODO
