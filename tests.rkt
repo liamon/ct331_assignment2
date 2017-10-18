@@ -1,7 +1,6 @@
 #lang racket
 
-(require (file "assignment_q2.rkt")
-         (file "assignment_q3.rkt"))
+(require (file "assignment_q2.rkt"))
 
 ;This structure allows a single function call
 ;to run every test in sequence, rather than
