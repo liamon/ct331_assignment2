@@ -42,3 +42,4 @@
 (present_in_tree 109 example_tree)
 
 (insert 8 example_tree)
+(insert_list '(2 77 100) example_tree)
