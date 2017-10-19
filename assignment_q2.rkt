@@ -42,3 +42,12 @@
   (cond [(empty? lst) count]
         [(equal? item (car lst)) (count_instances_tr_helper item (cdr lst) (+ 1 count))]
         [else (count_instances_tr_helper item (cdr lst) count)]))
+
+(provide count_instances_deep)
+; This function needs to check if any of the list's elements are also lists
+; and recursively call itself on that sublist if so.
+(define (count_instances_deep item lst)
+  (cond [(empty? lst) 0]
+        [(list? (car lst)) (count_instances_deep lst)]
+        [(equal? item (car list)) (+ 1 (count_instances_deep item (cdr lst)))]
+        [else (count_instances_deep (cdr lst))]))
