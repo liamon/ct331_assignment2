@@ -29,7 +29,7 @@
 (define (count_instances item lst)
   (cond [(null? lst) 0]
         [(equal? item (car lst)) (+ 1 (count_instances item (cdr lst)))]
-        [else (+ 0 (count_instances item (cdr lst)))]))
+        [else (count_instances item (cdr lst))]))
 
 (provide count_instances_tr)
 (define (count_instances_tr item lst)
