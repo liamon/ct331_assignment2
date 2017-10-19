@@ -2,6 +2,9 @@
 
 (define example_tree '(((() 5 ()) 9 (() 17 ())) 28 ((() 33 ()) 40 (() 45 ()))))
 
+(define (display_sorted tree)
+  (cond [(and (empty? (left_child tree)) (empty? (right_child tree))) (display (value tree))]))
+
 (define (present_in_tree item tree)
   (cond [(empty? tree) #f]
         [(equal? item (value tree)) #t]
