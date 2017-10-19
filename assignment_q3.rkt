@@ -1,10 +1,11 @@
 #lang racket
 
 (define example_tree '(((() 5 ()) 9 (() 17 ())) 28 ((() 33 ()) 40 (() 45 ()))))
+(define example_to_sort '(9 2 55 8 34 16))
 
 (define (display_sorted tree) ; TODO
   (cond [(empty? (left_child tree)) (display (value tree))]
-        [(empty? (right_child tree) '())]
+        [(empty? (right_child tree)) '()]
         [else (display_sorted (left_child tree))]))
 
 (define (present_in_tree item tree)
@@ -39,6 +40,8 @@
 
 (define (right_child tree)
   (caddr tree)) ; Can't say (cddr tree), as that would return the right child put inside a list.
+
+(display_sorted example_tree)
 
 (present_in_tree 40 example_tree)
 (present_in_tree 109 example_tree)
