@@ -17,5 +17,5 @@
 (define (right_child tree)
   (caddr tree)) ; Can't say (cddr tree), as that would return the right child put inside a list.
 
-(present_in_tree 9 example_tree)
+(present_in_tree 40 example_tree)
 (present_in_tree 109 example_tree)
