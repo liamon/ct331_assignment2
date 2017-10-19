@@ -4,7 +4,7 @@
 
 (define (present_in_tree item tree)
   (cond [(empty? tree) #f]
-        [(equal? item (value tree)) #t] ; TODO
+        [(equal? item (value tree)) #t]
         [(< item (value tree)) (present_in_tree item (left_child tree))]
         [else (present_in_tree item (right_child tree))])) ; (> item tree_value)
 
