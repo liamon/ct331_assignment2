@@ -48,6 +48,7 @@
 ; and recursively call itself on that sublist if so.
 (define (count_instances_deep item lst)
   (cond [(empty? lst) 0]
-        [(list? (car lst)) (count_instances_deep lst)]
+        [(list? (car lst))
+         (+ (count_instances_deep item (car lst)) (count_instances_deep item (cdr lst)))]
         [(equal? item (car list)) (+ 1 (count_instances_deep item (cdr lst)))]
         [else (count_instances_deep (cdr lst))]))
