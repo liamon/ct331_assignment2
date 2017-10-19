@@ -11,11 +11,21 @@
         [(< item (value tree)) (present_in_tree item (left_child tree))]
         [else (present_in_tree item (right_child tree))])) ; (> item tree_value)
 
-(define (insert item tree)
+(define (insert item tree) ; TODO This should return a tree, I think.
   (cond [(empty? tree) '(() item ())]
         [(equal? item (value tree)) '()]
         [(< item (value tree)) (insert item (left_child tree))]
         [else (insert item (right_child tree))]))
+
+(define (insert_list lst tree)
+  (if (empty? lst) tree
+      (insert_list (cdr lst) (insert (car lst) tree))))
+
+(define (tree_sort lst)
+  (display_sorted)) ; TODO
+
+(define (higher_order_tree_sort lst order_function)
+  (display_sorted)) ; TODO
 
 (define (value tree)
   (cadr tree))
