@@ -11,6 +11,12 @@
         [(< item (value tree)) (present_in_tree item (left_child tree))]
         [else (present_in_tree item (right_child tree))])) ; (> item tree_value)
 
+(define (insert item tree)
+  (cond [(empty? tree) '(() item ())]
+        [(equal? item (value tree)) '()]
+        [(< item (value tree)) (insert item (left_child tree))]
+        [else (insert item (right_child tree))]))
+
 (define (value tree)
   (cadr tree))
 
