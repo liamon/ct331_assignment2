@@ -50,5 +50,5 @@
   (cond [(empty? lst) 0]
         [(list? (car lst))
          (+ (count_instances_deep item (car lst)) (count_instances_deep item (cdr lst)))]
-        [(equal? item (car list)) (+ 1 (count_instances_deep item (cdr lst)))]
-        [else (count_instances_deep (cdr lst))]))
+        [(equal? item (car lst)) (+ 1 (count_instances_deep item (cdr lst)))]
+        [else (count_instances_deep item (cdr lst))]))

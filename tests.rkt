@@ -76,16 +76,16 @@
   (= 2 (count_instances_tr 1 '(0 2 1 9 1))))
 
 (define (test_count_instances_deep_absent)
-  (= 0 (count_instances_tr 3 '(0 1 55))))
+  (= 0 (count_instances_deep 3 '(0 1 55))))
 
 (define (test_count_instances_deep_present)
-  (= 2 (count_instances_tr 1 '(0 2 1 9 1))))
+  (= 2 (count_instances_deep 1 '(0 2 1 9 1))))
 
 (define (test_count_instances_deep_absent_sublists)
-  (= 0 (count_instances_tr 3 '((0 1) 55))))
+  (= 0 (count_instances_deep 3 '((0 1) 55))))
 
 (define (test_count_instances_deep_present_sublists)
-  (= 2 (count_instances_tr 1 '(0 (2 1) (9) 1))))
+  (= 2 (count_instances_deep 1 '(0 (2 1) (9) 1))))
 
 ;End test functions
 
