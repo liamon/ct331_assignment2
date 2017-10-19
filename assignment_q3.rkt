@@ -3,7 +3,9 @@
 (define example_tree '(((() 5 ()) 9 (() 17 ())) 28 ((() 33 ()) 40 (() 45 ()))))
 
 (define (display_sorted tree) ; TODO
-  (cond [(empty? (left_child tree)) (display (value tree))]))
+  (cond [(empty? (left_child tree)) (display (value tree))]
+        [(empty? (right_child tree) '())]
+        [else (display_sorted (left_child tree))]))
 
 (define (present_in_tree item tree)
   (cond [(empty? tree) #f]
@@ -24,7 +26,7 @@
       (insert_list (cdr lst) (insert (car lst) tree))))
 
 (define (tree_sort lst)
-  (display_sorted)) ; TODO
+  (display_sorted (insert lst '()))) ; TODO
 
 (define (higher_order_tree_sort lst order_function)
   (display_sorted)) ; TODO
@@ -42,4 +44,4 @@
 (present_in_tree 109 example_tree)
 
 (insert 8 example_tree)
-(insert_list '(2 77 100) example_tree)
+(insert_list '(2 8 34 100) example_tree)
