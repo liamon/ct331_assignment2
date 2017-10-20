@@ -31,11 +31,15 @@
   (if (empty? lst) tree
       (insert_list (cdr lst) (insert (car lst) tree))))
 
+(define (higher_order_insert_list lst tree is_on_left)
+  (if (empty? lst) tree
+      (higher_order_insert_list (cdr lst) (higher_order_insert (car lst) tree is_on_left) is_on_left)))
+
 (define (tree_sort lst)
-  (display_sorted (insert lst '()))) ; TODO
+  (display_sorted (insert_list lst '())))
 
 (define (higher_order_tree_sort lst order_function)
-  (display_sorted)) ; TODO
+  (display_sorted (higher_order_insert_list lst '() order_function)))
 
 (define (value tree)
   (cadr tree))
