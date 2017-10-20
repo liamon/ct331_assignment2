@@ -3,7 +3,7 @@
 (define example_tree '(((() 5 ()) 9 (() 17 ())) 28 ((() 33 ()) 40 (() 45 ()))))
 (define example_to_sort '(9 2 55 8 34 16))
 
-(define (display_sorted tree) ; TODO
+(define (display_sorted tree) ; TODO Use begin?
   (cond [(empty? (left_child tree)) (display (value tree))]
         [(empty? (right_child tree)) '()]
         [else (display_sorted (left_child tree))]))
@@ -15,11 +15,16 @@
         [else (present_in_tree item (right_child tree))])) ; (> item tree_value)
 
 (define (insert item tree)
+  (higher_order_insert item tree <))
+
+; I have split the logic for insert off into a higher-order function.
+; This will be used higher_order_tree_sort, making coding it much easier.
+(define (higher_order_insert item tree is_on_left)
   (cond [(empty? tree) (list '() item '())]
         [(equal? item (value tree)) tree]
-        [(< item (value tree))
+        [(is_on_left item (value tree))
          (list (insert item (left_child tree)) (value tree) (right_child tree))]
-        [else ; (> item (value tree)
+        [else ; same as "(is_on_right item (value tree)"
          (list (left_child tree) (value tree) (insert item (right_child tree)))]))
 
 (define (insert_list lst tree)
