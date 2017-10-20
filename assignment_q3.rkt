@@ -18,7 +18,7 @@
   (higher_order_insert item tree <))
 
 ; I have split the logic for insert off into a higher-order function.
-; This will be used higher_order_tree_sort, making coding it much easier.
+; This will be used in higher_order_tree_sort, making coding it much easier.
 (define (higher_order_insert item tree is_on_left)
   (cond [(empty? tree) (list '() item '())]
         [(equal? item (value tree)) tree]
