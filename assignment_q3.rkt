@@ -51,6 +51,9 @@
 (define (right_child tree)
   (caddr tree)) ; Can't say (cddr tree), as that would return the right child put inside a list.
 
+(define (ascending_last_digit x y)
+  (< (remainder x 10) (remainder y 10)))
+
 (display_sorted example_tree)
 
 (present_in_tree 40 example_tree)
@@ -60,3 +63,7 @@
 (insert_list '(2 8 34 100) example_tree)
 
 (tree_sort example_to_sort)
+
+(higher_order_tree_sort example_to_sort <)
+(higher_order_tree_sort example_to_sort >)
+(higher_order_tree_sort example_to_sort ascending_last_digit)
