@@ -1,7 +1,7 @@
 #lang racket
 
 (define example_tree '(((() 5 ()) 9 (() 17 ())) 28 ((() 33 ()) 40 (() 45 ()))))
-(define example_to_sort '(9 2 55 8 34 16))
+(define example_to_sort '(9 2 73 55 8 87 34 16))
 
 ; I'm using cond rather than if here as it does not require an "else".
 (define (display_sorted tree)
@@ -58,3 +58,5 @@
 
 (insert 8 example_tree)
 (insert_list '(2 8 34 100) example_tree)
+
+(tree_sort example_to_sort)
