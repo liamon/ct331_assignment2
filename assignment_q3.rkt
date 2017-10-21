@@ -3,10 +3,11 @@
 (define example_tree '(((() 5 ()) 9 (() 17 ())) 28 ((() 33 ()) 40 (() 45 ()))))
 (define example_to_sort '(9 2 55 8 34 16))
 
-(define (display_sorted tree) ; TODO Use begin?
-  (cond [(empty? (left_child tree)) (display (value tree))]
-        [(empty? (right_child tree)) '()]
-        [else (display_sorted (left_child tree))]))
+; I'm using cond rather than if here as it does not require an "else".
+(define (display_sorted tree)
+  (begin (cond [(not (empty? (left_child tree))) (display_sorted (left_child tree))])
+         (printf "~a~n" (value tree)) ; ~n is a platform-independent newline.
+         (cond [(not (empty? (right_child tree))) (display_sorted (right_child tree))])))
 
 (define (present_in_tree item tree)
   (cond [(empty? tree) #f]
