@@ -1,12 +1,12 @@
 #lang racket
 
 (define example_tree '(((() 5 ()) 9 (() 17 ())) 28 ((() 33 ()) 40 (() 45 ()))))
-(define example_to_sort '(9 2 73 55 8 87 34 16))
+(define example_to_sort '(9 22 73 55 8 87 34 16))
 
 ; I'm using cond rather than if here as it does not require an "else".
 (define (display_sorted tree)
   (begin (cond [(not (empty? (left_child tree))) (display_sorted (left_child tree))])
-         (printf "~a~n" (value tree)) ; ~n is a platform-independent newline.
+         (printf "~a~n" (value tree)) ; ~n is a platform-independent newline for printf.
          (cond [(not (empty? (right_child tree))) (display_sorted (right_child tree))])))
 
 (define (present_in_tree item tree)
@@ -56,16 +56,26 @@
 (define (ascending_last_digit x y)
   (< (remainder x 10) (remainder y 10)))
 
+(display "display_sorted:\n")
 (display_sorted example_tree)
 
+(display "present_in_tree:\n")
 (present_in_tree 40 example_tree)
 (present_in_tree 109 example_tree)
 
+(display "insert:\n")
 (insert 8 example_tree)
+
+(display "insert_list:\n")
 (insert_list '(2 8 34 100) example_tree)
 
+(display "tree_sort:\n")
 (tree_sort example_to_sort)
 
+(display "higher_order_tree_sort:\n")
+(display "ASCENDING:\n")
 (higher_order_tree_sort example_to_sort <)
+(display "DESCENDING:\n")
 (higher_order_tree_sort example_to_sort >)
+(display "ASCENDING BASED ON LAST DIGIT:\n")
 (higher_order_tree_sort example_to_sort ascending_last_digit)
