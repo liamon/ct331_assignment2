@@ -23,7 +23,7 @@
 (define (higher_order_insert item tree is_on_left)
   (cond [(empty? tree) (list '() item '())]
         [(equal? item (value tree)) tree]
-        ; At first these next lines did not work is is_on_left was not <
+        ; At first these next lines did not work if is_on_left was not <
         ; This was because I was calling insert instead of higher_order_insert
         [(is_on_left item (value tree))
          (list (higher_order_insert item (left_child tree) is_on_left) (value tree) (right_child tree))]
